@@ -5,11 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour {
 
-    public float autoLoadNextLevelAfter;
+    public float autoLoadNextLevelAfter;        //seconds to wait until auto loading next level
 
     private void Start()
     {
-        Invoke("LoadNextLevel", autoLoadNextLevelAfter);
+        if (autoLoadNextLevelAfter == 0)        //don't autoload if this is zero
+        {
+            Debug.Log("Auto load disabled");
+        }
+        else
+        {
+            Invoke("LoadNextLevel", autoLoadNextLevelAfter);    //auto load next level
+        }
     }
 
     public void LoadLevel(string name)
@@ -31,6 +38,7 @@ public class LevelManager : MonoBehaviour {
        
     }
 
+    //function toload the next level based on build index
     public void LoadNextLevel()
     {
        
