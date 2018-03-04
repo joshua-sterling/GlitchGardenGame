@@ -9,7 +9,7 @@ public class LevelManager : MonoBehaviour {
 
     private void Start()
     {
-        if (autoLoadNextLevelAfter == 0)        //don't autoload if this is zero
+        if (autoLoadNextLevelAfter <= 0)        //don't autoload if this is zero
         {
             Debug.Log("Auto load disabled");
         }
